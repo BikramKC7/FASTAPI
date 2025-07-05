@@ -1,0 +1,152 @@
+{
+  "P001": {
+    "name": "Ravi Mehta",
+    "age": 35,
+    "gender": "male",
+    "city": "Mumbai",
+    "height": 1.75,
+    "weight": 85,
+    "bmi": 27.76,
+    "verdict": "Overweight"
+  },
+  "P002": {
+    "name": "Neha Sinha",
+    "age": 28,
+    "gender": "female",
+    "city": "Kolkata",
+    "height": 1.65,
+    "weight": 90,
+    "bmi": 33.06,
+    "verdict": "Obese"
+  },
+  "P003": {
+    "name": "Ananya Sharma",
+    "age": 30,
+    "gender": "female",
+    "city": "Guwahati",
+    "height": 1.6,
+    "weight": 45,
+    "bmi": 17.58,
+    "verdict": "Underweight"
+  },
+  "P004": {
+    "name": "Arjun Verma",
+    "age": 40,
+    "gender": "male",
+    "city": "Bangalore",
+    "height": 1.6,
+    "weight": 75,
+    "bmi": 29.30,
+    "verdict": "Overweight"
+  },
+  "P005": {
+    "name": "Sneha Kulkarni",
+    "age": 30,
+    "gender": "female",
+    "city": "Pune",
+    "height": 1.55,
+    "weight": 95,
+    "bmi": 39.53,
+    "verdict": "Obese"
+  },
+  "P006": {
+    "name": "Rahul Yadav",
+    "age": 26,
+    "gender": "male",
+    "city": "Lucknow",
+    "height": 1.8,
+    "weight": 70,
+    "bmi": 21.60,
+    "verdict": "Normal"
+  },
+  "P007": {
+    "name": "Priya Das",
+    "age": 24,
+    "gender": "female",
+    "city": "Delhi",
+    "height": 1.6,
+    "weight": 50,
+    "bmi": 19.53,
+    "verdict": "Normal"
+  },
+  "P008": {
+    "name": "Karan Singh",
+    "age": 38,
+    "gender": "male",
+    "city": "Jaipur",
+    "height": 1.7,
+    "weight": 95,
+    "bmi": 32.87,
+    "verdict": "Obese"
+  },
+  "P009": {
+    "name": "Isha Kapoor",
+    "age": 32,
+    "gender": "female",
+    "city": "Chandigarh",
+    "height": 1.65,
+    "weight": 58,
+    "bmi": 21.30,
+    "verdict": "Normal"
+  },
+  "P010": {
+    "name": "Aman Thapa",
+    "age": 29,
+    "gender": "male",
+    "city": "Kathmandu",
+    "height": 1.75,
+    "weight": 65,
+    "bmi": 21.22,
+    "verdict": "Normal"
+  },
+  "P011": {
+    "name": "Ritika Shah",
+    "age": 34,
+    "gender": "female",
+    "city": "Surat",
+    "height": 1.55,
+    "weight": 70,
+    "bmi": 29.13,
+    "verdict": "Overweight"
+  },
+  "P012": {
+    "name": "Mohit Rathi",
+    "age": 31,
+    "gender": "male",
+    "city": "Indore",
+    "height": 1.8,
+    "weight": 105,
+    "bmi": 32.41,
+    "verdict": "Obese"
+  },
+  "P013": {
+    "name": "Shruti Nair",
+    "age": 22,
+    "gender": "female",
+    "city": "Thiruvananthapuram",
+    "height": 1.62,
+    "weight": 47,
+    "bmi": 17.91,
+    "verdict": "Underweight"
+  },
+  "P014": {
+    "name": "Dev Patel",
+    "age": 37,
+    "gender": "male",
+    "city": "Ahmedabad",
+    "height": 1.7,
+    "weight": 80,
+    "bmi": 27.68,
+    "verdict": "Overweight"
+  },
+  "P015": {
+    "name": "Anjali Mishra",
+    "age": 33,
+    "gender": "female",
+    "city": "Varanasi",
+    "height": 1.6,
+    "weight": 55,
+    "bmi": 21.48,
+    "verdict": "Normal"
+  }
+}
