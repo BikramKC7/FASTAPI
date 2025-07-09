@@ -78,7 +78,8 @@ from pydantic import field_validator
         
 #         return value
     
-#     @field_validator('age',mode='after')  #before mode value is passed before type conversion if we pass string in age then it will pass as a string and throw error so mode should be after by default
+#     @field_validator('age',mode='after')  
+#     before mode value is passed before type conversion if we pass string in age then it will pass as a string and throw error so mode should be after by default
 #     @classmethod
 #     def age_validator(cls,value):
 #         if 0>value>100:
