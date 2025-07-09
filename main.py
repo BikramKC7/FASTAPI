@@ -2,7 +2,7 @@ from fastapi import FastAPI,Path,status,HTTPException,Query
 from fastapi.responses import JSONResponse
 import json
 from pydantic import BaseModel,Field,computed_field
-from typing import Annotated,Literal
+from typing import Annotated,Literal,Optional
 
 app = FastAPI()
 
@@ -32,7 +32,14 @@ class Patient(BaseModel):
             return 'Normal'
         else:
             return 'Obese'
-    
+        
+class PatientUpdate(BaseModel):
+    name:Annotated[Optional[str],Field(default=None)]
+    city : Annotated[Optional[str],Field(default=None)]
+    age: Annotated[Optional[int],Field(default=None,gt=0,lt=120)]
+    gender:Annotated[Optional[Literal['male','female']],Field(default=None)]
+    height:Annotated[Optional[float],Field(default=None,gt=0)]
+    weight:Annotated[Optional[float],Field(default=None,gt=0)]
 
 def load_data():
     with open('patients.json','r')as f:
@@ -66,7 +73,7 @@ def view_patient(patient_id:str=Path(...,description='ID of the patient in the D
     
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='Patient not found')
     
-@app.get('sort/')
+@app.get('/sort/')
 def sort_patients(sort_by:str=Query(...,description='Sort on the basis of height,weight or bmi'),order: str = Query('asc',description='Sort in asc or desc order')):
     valid_fields = ['height','weight','bmi']
     
@@ -85,7 +92,7 @@ def sort_patients(sort_by:str=Query(...,description='Sort on the basis of height
     return sorted_data
         
         
-@app.post('/create')
+@app.post('/create/')
 def create(patient: Patient):
     #load existing all data
     data = load_data()
@@ -104,5 +111,40 @@ def create(patient: Patient):
     return JSONResponse(status_code=status.HTTP_201_CREATED,content={'msg':'patients created successfully'})
 
  
+@app.put('/edit/{patient_id}')
+def update_patient(patient_id:str,patient_update:PatientUpdate):
+    data = load_data()
+    if patient_id not in data:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Patient Id not found")
+    existing_patient_detail = data[patient_id]
+    updated_patient_info = patient_update.model_dump(exclude_unset=True)
+    for key,value in updated_patient_info.items():
+        existing_patient_detail[key]=value
+        
+    # existing_patient_info -> pydantic object -> updated bmi + verdict
+    existing_patient_detail['id']=patient_id
+    patient_pydantic_obj = Patient(**existing_patient_detail)
+    # -> pydantic object -> dict
+    existing_patient_detail=patient_pydantic_obj.model_dump(exclude='id')
+    
+    # add this dict to data
+    data[patient_id]=existing_patient_detail
+    
+    # save data
+    save_data(data)
+    
+    return JSONResponse(status_code=status.HTTP_200_OK,content={'msg':'patient updated'})
+
+@app.delete('/delete/{patient_id}')
+def delete_user(patient_id:str):
+    # load data
+    data = load_data()
+    if patient_id not in data:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Patient not found")
+    
+    del data[patient_id]
+    
+    save_data(data)
+    return JSONResponse(status_code=status.HTTP_200_OK,content={'msg':'deleted user'})
     
     
