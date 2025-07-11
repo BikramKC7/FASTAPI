@@ -148,3 +148,6 @@ def delete_user(patient_id:str):
     return JSONResponse(status_code=status.HTTP_200_OK,content={'msg':'deleted user'})
     
     
+    
+    
+    
